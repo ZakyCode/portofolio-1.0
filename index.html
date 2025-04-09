@@ -8,28 +8,6 @@
 <link rel="stylesheet" href="style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "admin@domainkamu.com"; // Ganti dengan email tujuan
-    $subject = "Form Submission from Website";
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $address = htmlspecialchars($_POST["address"]);
-    $phone = htmlspecialchars($_POST["phone"]);
-    $message = htmlspecialchars($_POST["message"]);
-
-    $body = "Name: $name\nEmail: $email\nAddress: $address\nPhone: $phone\nMessage: $message";
-
-    $headers = "From: $email\r\nReply-To: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Message sent successfully!";
-    } else {
-        echo "Failed to send message.";
-    }
-}
-?>
-
 <body>
 <!-- header site ---------------------------------------------------------------------->
     <header>
