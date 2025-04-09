@@ -460,20 +460,17 @@
                 </div>
             </div>
         </div>
-
-        <form action="sendmail.php" method="POST" class="scroll-bottom">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <input type="text" name="address" placeholder="Your Address" required>
-  <input type="number" name="phone" placeholder="Phone Number" required>
-  <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-
-  <div class="btn-box formBtn">
-    <button type="submit" class="btn">Send via Email</button>
-  </div>
+<form id="waForm" class="scroll-bottom">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="text" name="email" placeholder="Your Email" required>
+    <input type="text" name="address" placeholder="Your Address" required>
+    <input type="number" name="phone" placeholder="Phone Number" required>
+    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+    
+    <div class="btn-box formBtn">
+        <button type="submit" class="btn">Send Message</button>
+    </div>
 </form>
-
-
 
     </section>
 
