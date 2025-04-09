@@ -8,6 +8,27 @@
 <link rel="stylesheet" href="style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $to = "admin@domainkamu.com"; // Ganti dengan email tujuan
+    $subject = "Form Submission from Website";
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $address = htmlspecialchars($_POST["address"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $message = htmlspecialchars($_POST["message"]);
+
+    $body = "Name: $name\nEmail: $email\nAddress: $address\nPhone: $phone\nMessage: $message";
+
+    $headers = "From: $email\r\nReply-To: $email";
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Failed to send message.";
+    }
+}
+?>
 
 <body>
 <!-- header site ---------------------------------------------------------------------->
@@ -462,17 +483,18 @@
             </div>
         </div>
 
-        <form id="waForm" class="scroll-bottom">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="text" name="email" placeholder="Your Email" required>
-    <input type="text" name="address" placeholder="Your Address" required>
-    <input type="number" name="phone" placeholder="Phone Number" required>
-    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-    
-    <div class="btn-box formBtn">
-        <button type="submit" class="btn">Send Message</button>
-    </div>
+        <form action="sendmail.php" method="POST" class="scroll-bottom">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <input type="text" name="address" placeholder="Your Address" required>
+  <input type="number" name="phone" placeholder="Phone Number" required>
+  <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+
+  <div class="btn-box formBtn">
+    <button type="submit" class="btn">Send via Email</button>
+  </div>
 </form>
+
 
 
     </section>
