@@ -122,3 +122,35 @@ scrollBottom.forEach((el)=>observer.observe(el));
 
 const scrollTop = document.querySelectorAll(".scroll-top");
 scrollTop.forEach((el)=>observer.observe(el));
+
+
+//Form Contac/////////////////////////////////////////////////////////
+
+  document.getElementById("waForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Mencegah form reload
+
+    // Ambil nilai input
+    var name = document.querySelector('[name="name"]').value;
+    var email = document.querySelector('[name="email"]').value;
+    var address = document.querySelector('[name="address"]').value;
+    var phone = document.querySelector('[name="phone"]').value;
+    var message = document.querySelector('[name="message"]').value;
+
+    // Format pesan
+    var text = 
+      "*Form Pesan Baru Dari Website*%0A" +
+      "👤 *Nama:* " + name + "%0A" +
+      "📧 *Email:* " + email + "%0A" +
+      "🏠 *Alamat:* " + address + "%0A" +
+      "📱 *No. HP:* " + phone + "%0A" +
+      "📝 *Pesan:* " + message;
+
+    // Nomor tujuan WhatsApp (gunakan format internasional tanpa + atau 0 di depan)
+    var phoneNumber = "6285150621367"; // 62 untuk Indonesia, ubah 085 menjadi 6285
+
+    // Buat URL WhatsApp
+    var waUrl = "https://wa.me/" + phoneNumber + "?text=" + text;
+
+    // Buka WhatsApp
+    window.open(waUrl, "_blank");
+  });
