@@ -138,7 +138,7 @@ scrollTop.forEach((el)=>observer.observe(el));
 
     // Format pesan
     var text = 
-      "*Form Pesan Baru Dari Website*%0A" +
+      "*Form Pesan Baru Dari Website Portofolio*%0A" +
       "👤 *Nama:* " + name + "%0A" +
       "📧 *Email:* " + email + "%0A" +
       "🏠 *Alamat:* " + address + "%0A" +
